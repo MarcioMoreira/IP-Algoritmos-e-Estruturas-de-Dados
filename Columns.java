@@ -4,14 +4,16 @@ import java.util.Random;
 public class Columns{
 
 	static void writeMenu(){	//Menu
-
+		System.out.println();
 		System.out.println("Seleccione uma opcao: ");
+		System.out.println();
 		System.out.println("1 - Introduzir linha ");
 		System.out.println("2 - Gerar coluna ");
 		System.out.println("3 - Sair do programa ");
 	}
 
 	static void option1(Scanner input){
+		System.out.println("ENTREI NA OPTION 1:");
 
 		System.out.println("Insira uma linha:");
 
@@ -22,9 +24,7 @@ public class Columns{
 		while(line.length() != 12){	// Enquanto o utilizador nao inserir 12 caracteres o programa nao avanca
 
 			System.out.println("A linha tem " + line.length() +" caractere(s). Deve ter 12.");
-
 			System.out.println("Insira nova linha:");
-
 			line=input.nextLine();
 		}	
 
@@ -35,68 +35,42 @@ public class Columns{
 			for(int position = 0; position < line.length(); position ++){ //executa ciclo que indica qual o caracter que esta em cada posicao
 
 				switch (line.charAt(position)){
-
-				case '!': exclam ++;
-				break;
-				case '@': arroba ++;
-				break;
-				case '#': cardinal ++;
-				break;
-				case '$': cifra ++;
-				break;
-				case '%': percent ++;
-				break;
-				case '_': space ++;
-				break;
-				default:
+					case '!': exclam ++;
+					break;
+					case '@': arroba ++;
+					break;				
+					case '#': cardinal ++;
+					break;
+					case '$': cifra ++;
+					break;
+					case '%': percent ++;
+					break;
+					case '_': space ++;
+					break;
+					default:
 					System.out.println("Caracter(s) invalido(s)");
 					System.out.println("Insira nova linha:");
-
 					line=input.nextLine();	
 				}
 			}
 
 			if(exclam >= 3)
 				line = line.replace('!', '_');
+			
 			if(arroba >= 3)
 				line = line.replace('@', '_');
+			
 			if(cardinal >= 3)
 				line = line.replace('#', '_');
+			
 			if(cifra >= 3)
 				line = line.replace('$', '_');
+			
 			if(percent >= 3)
 				line = line.replace('%', '_');
 
 			System.out.println(line);
-		}
-
-		else{
-
-			for(int position = 0; position < line.length(); position ++){ //executa ciclo que indica qual o caracter que esta em cada posicao
-
-				switch (line.charAt(position)){
-
-				case '!': exclam ++;
-				break;
-				case '@': arroba ++;
-				break;
-				case '#': cardinal ++;
-				break;
-				case '$': cifra ++;
-				break;
-				case '%': percent ++;
-				break;
-				case '_': space ++;
-				break;
-				default:
-					System.out.println("Caracter(s) invalido(s)");
-					System.out.println("Insira nova linha:");
-
-					line=input.nextLine();	
-				}
-			}
-
-
+			
 			int maior = Math.max(exclam , arroba);
 			maior = Math.max(maior , cardinal);
 			maior = Math.max(maior , cifra);
@@ -104,17 +78,49 @@ public class Columns{
 
 			if( space == 12)
 				System.out.println("Nao foram inseridos simbolos");
+		
 			else if(maior == exclam)
-				System.out.println("Caracter: ! ; Ocorrencia: " + maior);
+				System.out.println("Caracter a substituir: ! ; Ocorrencia: " + maior);
+		
 			else if(maior == arroba)
-				System.out.println("Caracter: @ ; Ocorrencia: " + maior);
+				System.out.println("Caracter a substituir: @ ; Ocorrencia: " + maior);
+		
 			else if(maior == cardinal)
-				System.out.println("Caracter: # ; Ocorrencia: " + maior);
+				System.out.println("Caracter a substituir: # ; Ocorrencia: " + maior);
+		
 			else if(maior == cifra)
-				System.out.println("Caracter: $ ; Ocorrencia: " + maior);
+				System.out.println("Caracter a substituir: $ ; Ocorrencia: " + maior);
+		
 			else if(maior == percent)
-				System.out.println("Caracter: % ; Ocorrencia: " + maior);
+				System.out.println("Caracter a substituir: % ; Ocorrencia: " + maior);
+			
+		}
 
+		else{
+			for(int position = 0; position < line.length(); position ++){ //executa ciclo que indica qual o caracter que esta em cada posicao
+				switch (line.charAt(position)){
+					case '!': exclam ++;
+					break;
+					case '@': arroba ++;
+					break;
+					case '#': cardinal ++;
+					break;
+					case '$': cifra ++;
+					break;
+					case '%': percent ++;
+					break;
+					case '_': space ++;
+					break;
+					default:
+					System.out.println("Caracter(s) invalido(s)");
+					System.out.println("Insira nova linha:");
+
+					line=input.nextLine();	
+				}
+			}
+
+
+			
 
 		}
 
@@ -151,32 +157,34 @@ public class Columns{
 
 		int perm = input.nextInt();
 
-		if(input.hasNextInt()){ //caso o digito inserido seja um inteiro continua a executar
+		if(perm == 0 || perm == 1 || perm == 2){ //caso o digito inserido seja um inteiro continua a executar
 
 			if(perm == 0){
 
 				System.out.println(coluna);
+				writeMenu ();
+				
 			}
 
 			else if (perm == 1 || perm == 2){	//caso escolha opcao 2
 
-				permutacao(coluna,perm);
+				permutacao(coluna,perm);				
+				writeMenu ();
+
 			}
 
 			else
 				System.out.println("Introduza uma das opcoes validas!");
 			input.nextLine();
 		}
-		if 
+		else 
 			System.out.println("Introduza uma das opcoes validas!");
 		input.nextLine();
 
-		System.out.println();
-		writeMenu ();
-
 	}
-	
-
+/*	
+	static void countConsecutive (Strin_, Char, CharIndex()){
+*/	
 	static void permutacao(String coluna, int perm){
 
 		StringBuilder sb = new StringBuilder();
@@ -220,41 +228,33 @@ public class Columns{
 
 		Scanner input = new Scanner(System.in);
 
-		int option = 0;
+		int option;
 
 		do{
-
-
 			writeMenu();
+			option = input.nextInt();
 
-			if(input.hasNextInt()){ //caso o digito inserido seja um inteiro continua a executar
-				option = input.nextInt();
-				if(option == 1){
-
+			if(option == 1){
 					option1(input);
-				}
-
-				else if (option == 2){	//caso escolha opcao 2
-
-					option2(input);
-				}
-
-				else if (option != 3){	//caso escolha opcao 3
-
-					System.out.println("Introduza uma das opcoes validas!");
-
-				}
 			}
 
-			else{//caso o digito inserido nao seja um inteiro emite uma mensagem de erro e pede ao utilizador que insira uma opcao valida
+			else if (option == 2){	//caso escolha opcao 2
+					option2(input);
+			}
 
+			else if (option != 3){	//caso escolha opcao 3
+					System.out.println("Introduza uma das opcoes validas!");
+			}
+			
+			else{//caso o digito inserido nao seja um inteiro emite uma mensagem de erro e pede ao utilizador que insira uma opcao valida
 				input.nextLine();
 				System.out.println("Introduza uma das opcoes validas!");
-
 			}
+		
+		} while (option != 3);	//opcao Sair
+		
 		}
 
-		while (option != 3);	//opcao Sair
-
+		
 	}
-}
+
