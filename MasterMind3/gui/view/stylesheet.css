@@ -1,0 +1,10 @@
+
+/* Class definition for the base pane */
+
+.root{ /*using the base_pane class selector will style our pane */
+
+    /*changes the background color of our pane to
+     * dark blue, color code is in hexadecimal */
+    -fx-background-color: #4f5457;
+
+}

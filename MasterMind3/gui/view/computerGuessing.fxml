@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Point3D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<!--<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1">-->
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerComputerGuessing">
+   <children>
+      <Label text="Please select a puzzle to the computer" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <HBox fx:id="puzzleSubmit" alignment="center" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Circle fx:id="puzzle1" radius="20.0" stroke="WHITE" strokeType="INSIDE">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+               </HBox.margin>
+            </Circle>
+            <Circle fx:id="puzzle2" layoutX="30.0" layoutY="30.0" radius="20.0" stroke="WHITE" strokeType="INSIDE">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+               </HBox.margin>
+            </Circle>
+            <Circle fx:id="puzzle3" layoutX="70.0" layoutY="30.0" radius="20.0" stroke="WHITE" strokeType="INSIDE">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+               </HBox.margin>
+            </Circle>
+            <Circle fx:id="puzzle4" layoutX="110.0" layoutY="30.0" radius="20.0" stroke="WHITE" strokeType="INSIDE">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+               </HBox.margin>
+            </Circle>
+         </children>
+      </HBox>
+      <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#submitButtonPressed" text="Submit puzzle">
+               <HBox.margin>
+                  <Insets right="150.0" top="20.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+         <rotationAxis>
+            <Point3D />
+         </rotationAxis>
+      </HBox>
+   </children>
+</VBox>
